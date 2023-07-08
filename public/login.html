@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/login.css" />
+    <title>會員登入</title>
+  </head>
+  <body>
+    <section class="login">
+      <h1 class="title">帳戶登入</h1>
+      <div class="blank">
+        <input
+          type="text"
+          name="account"
+          class="account"
+          id="account"
+          placeholder="Account"
+        />
+      </div>
+      <div class="blank">
+        <input
+          type="text"
+          name="password"
+          class="password"
+          id="password"
+          placeholder="Password"
+        />
+        <i class="eyes fa-solid fa-eye show-pw" id="show-pw"></i>
+        <i class="eyes fa-solid fa-eye-slash hide-pw" id="hide-pw"></i>
+      </div>
+      <button type="submit" class="btn submit" id="submit">登入</button>
+      <button type="reset" class="btn reset" id="reset">重置</button>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/script/login.js"></script>
+  </body>
+</html>
