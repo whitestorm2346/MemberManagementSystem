@@ -40,6 +40,7 @@ export const sign_up = async () => {
         }
 
         console.log(data)
+        alert('Sign Up Successfully!')
     }
 }
 
