@@ -38,8 +38,7 @@ function SignUpPage(){
         <button type="reset" className="btn reset" id="reset">重置</button>
         </section>
 
-        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-        <script src="/script/login.js"></script>
+        <script src="/script/sign-up.js"></script>
         </>
     )
 }

@@ -1,4 +1,4 @@
-function LoginPage(){
+function HomePage(){
     return(
         <>
         <section className="login">
@@ -26,10 +26,8 @@ function LoginPage(){
         <button type="submit" className="btn submit" id="submit">登入</button>
         <button type="reset" className="btn reset" id="reset">重置</button>
         </section>
-
-        <script src="/script/login.js"></script>
         </>
     )
 }
 
-export default LoginPage;
+export default HomePage;
