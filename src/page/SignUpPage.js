@@ -1,17 +1,6 @@
+import { sign_up, reset } from './script/sign-up.js';
+
 function SignUpPage(){
-    const reset = () => {
-        console.log('reset active')
-    
-        const input_account = document.getElementById('account')
-        input_account.value = ''
-    
-        const input_new_password = document.getElementById('new-password')
-        input_new_password.value = ''
-
-        const input_check_password = document.getElementById('check-password')
-        input_check_password.value = ''
-    }
-
     return(
         <>
         <section className="sign-up">
@@ -44,11 +33,14 @@ function SignUpPage(){
             <i className="eyes fa-solid fa-eye show-pw" id="show-pw"></i>
             <i className="eyes fa-solid fa-eye-slash hide-pw" id="hide-pw"></i>
         </div>
-        <button type="submit" className="btn submit" id="submit">登入</button>
-        <button type="reset" className="btn reset" id="reset" onClick={reset}>重置</button>
+        <div className="buttons">
+            <button type="submit" className="btn submit" id="submit" onClick={sign_up}>註冊帳戶</button>
+            <button type="reset" className="btn reset" id="reset" onClick={reset}>重置</button>
+        </div>
+        <div className="links">
+            <a href="/login">返回登入</a>
+        </div>
         </section>
-
-        <script src="/script/sign-up.js"></script>
         </>
     )
 }

@@ -5,19 +5,53 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const fetchUsers = async () => {
-    let {data, error} = await supabase.from('member-list').select('*')
+export const sign_up = async () => {
+    let account = document.getElementById('account').value
+    let new_password = document.getElementById('new-password').value
+    let check_password = document.getElementById('check-password').value
 
-    if (error) {
-        console.error(error);
+    if (new_password !== check_password) {
+        alert('The passwords do not fit!')
         return;
     }
 
-    console.log(data);
-};
+    let {data, error} = await supabase
+    .from('member-list')
+    .select("*")
+    .eq('account', account)
 
-fetchUsers();
+    if (error) {
+        console.error(error);
+    }
+    else if (data.length) {
+        alert('This account already exist!')
+    }
+    else {
+        let { data, error } = await supabase
+            .from('member-list')
+            .insert([{ 
+                account: account, 
+                password: new_password 
+            }]).select()
 
-const sign_up = async () => {
-    
+        if (error) {
+            console.error(error);
+            return;
+        }
+
+        console.log(data)
+    }
+}
+
+export const reset = () => {
+    console.log('reset active')
+
+    const input_account = document.getElementById('account')
+    input_account.value = ''
+
+    const input_new_password = document.getElementById('new-password')
+    input_new_password.value = ''
+
+    const input_check_password = document.getElementById('check-password')
+    input_check_password.value = ''
 }

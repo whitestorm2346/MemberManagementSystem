@@ -10,7 +10,9 @@ body {
 }
 
 section {
-    margin: 30vh auto;
+    margin: 0 auto;
+    margin-top: 28vh;
+    height: fit-content;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -44,7 +46,7 @@ input {
     justify-content: space-between;   
 }
 
-button {
+button, .btn {
     padding: .3rem 1rem;
     font-weight: bold;
     background-color: rgb(255, 190, 69);
@@ -52,31 +54,18 @@ button {
     border: 1px solid #000;
 }
 
-button:hover {
+button:hover, .btn:hover {
     cursor: pointer;
     background-color: rgb(255, 204, 109);
-}
-
-.account {
-
-}
-
-.password {
-
 }
 
 .eyes {
     color: rgb(111, 111, 111);
 }
 
-.btn {
-
+.links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;  
 }
 
-.submit {
-
-}
-
-.reset {
-    
-}

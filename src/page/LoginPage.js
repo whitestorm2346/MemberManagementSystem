@@ -1,4 +1,4 @@
-import {login, reset} from './script/login.js';
+import { login, reset } from './script/login.js';
 
 function LoginPage(){
     return(
@@ -27,9 +27,11 @@ function LoginPage(){
             <button type="submit" className="btn submit" id="submit" onClick={login}>登入</button>
             <button type="reset" className="btn reset" id="reset" onClick={reset}>重置</button>
         </div>
+        <div className="links">
+            <a href="/sign-up">註冊帳戶</a>
+            <a href="/forgot-password">忘記密碼</a>
+        </div>
         </section>
-
-        <script src="/script/login.js"></script>
         </>
     )
 }
