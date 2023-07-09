@@ -1,6 +1,27 @@
+import { useEffect } from 'react';
 import { login, reset } from './script/login.js';
 
 function LoginPage(){
+    useEffect(() => {
+        const show_pw_btn = document.getElementById('show-pw')
+        const hide_pw_btn = document.getElementById('hide-pw')
+        const input_password = document.getElementById('password')
+
+        show_pw_btn.addEventListener('click', () => {
+            show_pw_btn.classList.add('hide')
+            hide_pw_btn.classList.remove('hide')
+
+            input_password.setAttribute("type", "text")
+        })
+
+        hide_pw_btn.addEventListener('click', () => {
+            hide_pw_btn.classList.add('hide')
+            show_pw_btn.classList.remove('hide')
+
+            input_password.setAttribute("type", "password")
+        })
+    }, [])
+
     return(
         <>
         <section className="login">
@@ -16,13 +37,13 @@ function LoginPage(){
             </div>
             <div className="blank">
                 <input
-                type="text"
+                type="password"
                 name="password"
                 id="password"
                 placeholder="Password"
                 />
                 <i className="eyes fa-solid fa-eye show-pw" id="show-pw"></i>
-                <i className="eyes fa-solid fa-eye-slash hide-pw" id="hide-pw"></i>
+                <i className="eyes fa-solid fa-eye-slash hide-pw hide" id="hide-pw"></i>
             </div>
         </div>
         <div className="buttons">
@@ -34,7 +55,7 @@ function LoginPage(){
             <a href="/forgot-password">忘記密碼</a>
         </div>
         <a href="/" className="btn2">
-            <i class="fa-solid fa-house"></i>
+            <i className="fa-solid fa-house"></i>
         </a>
         </section>
         </>

@@ -10,6 +10,10 @@ export const sign_up = async () => {
     let new_password = document.getElementById('new-password').value
     let check_password = document.getElementById('check-password').value
 
+    if(account === '' || new_password === '' || check_password === '') {
+        return;
+    }
+
     if (new_password !== check_password) {
         alert('The passwords do not fit!')
         return;

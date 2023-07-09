@@ -10,6 +10,10 @@ export const login = async () => {
     let password = document.getElementById('password').value
     // console.log(account, password)
 
+    if(account === '' || password === '') {
+        return;
+    }
+
     let {data, error} = await supabase
     .from('member-list')
     .select("*")
@@ -44,4 +48,3 @@ export const reset = () => {
     const input_password = document.getElementById('password')
     input_password.value = ''
 }
-
