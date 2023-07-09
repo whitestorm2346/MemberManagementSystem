@@ -74,9 +74,9 @@ function SignUpPage(){
             <button type="submit" className="btn submit" id="submit" onClick={sign_up}>註冊</button>
             <button type="reset" className="btn reset" id="reset" onClick={reset}>重置</button>
         </div>
-        <div className="links">
-            <a href="/login">返回登入</a>
-        </div>
+        <a href="/login" className="btn2">
+            <i className="fa-solid fa-right-to-bracket"></i>
+        </a>
         </section>
         </>
     )
