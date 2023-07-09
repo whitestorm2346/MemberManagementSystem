@@ -5,23 +5,25 @@ function LoginPage(){
         <>
         <section className="login">
         <h1 className="title">帳戶登入</h1>
-        <div className="blank">
-            <input
-            type="text"
-            name="account"
-            id="account"
-            placeholder="Account"
-            />
-        </div>
-        <div className="blank">
-            <input
-            type="text"
-            name="password"
-            id="password"
-            placeholder="Password"
-            />
-            <i className="eyes fa-solid fa-eye show-pw" id="show-pw"></i>
-            <i className="eyes fa-solid fa-eye-slash hide-pw" id="hide-pw"></i>
+        <div className="container">
+            <div className="blank">
+                <input
+                type="text"
+                name="account"
+                id="account"
+                placeholder="Account"
+                />
+            </div>
+            <div className="blank">
+                <input
+                type="text"
+                name="password"
+                id="password"
+                placeholder="Password"
+                />
+                <i className="eyes fa-solid fa-eye show-pw" id="show-pw"></i>
+                <i className="eyes fa-solid fa-eye-slash hide-pw" id="hide-pw"></i>
+            </div>
         </div>
         <div className="buttons">
             <button type="submit" className="btn submit" id="submit" onClick={login}>登入</button>
@@ -31,6 +33,9 @@ function LoginPage(){
             <a href="/sign-up">註冊帳戶</a>
             <a href="/forgot-password">忘記密碼</a>
         </div>
+        <a href="/" className="btn2">
+            <i class="fa-solid fa-house"></i>
+        </a>
         </section>
         </>
     )

@@ -5,33 +5,35 @@ function SignUpPage(){
         <>
         <section className="sign-up">
         <h1 className="title">註冊帳戶</h1>
-        <div className="blank">
-            <input
-            type="text"
-            name="account"
-            id="account"
-            placeholder="Account"
-            />
-        </div>
-        <div className="blank">
-            <input
-            type="text"
-            name="new password"
-            id="new-password"
-            placeholder="New Password"
-            />
-            <i className="eyes fa-solid fa-eye show-pw" id="show-pw"></i>
-            <i className="eyes fa-solid fa-eye-slash hide-pw" id="hide-pw"></i>
-        </div>
-        <div className="blank">
-            <input
-            type="text"
-            name="check password"
-            id="check-password"
-            placeholder="Check Password"
-            />
-            <i className="eyes fa-solid fa-eye show-pw" id="show-pw"></i>
-            <i className="eyes fa-solid fa-eye-slash hide-pw" id="hide-pw"></i>
+        <div className="container">
+            <div className="blank">
+                <input
+                type="text"
+                name="account"
+                id="account"
+                placeholder="Account"
+                />
+            </div>
+            <div className="blank">
+                <input
+                type="text"
+                name="new password"
+                id="new-password"
+                placeholder="New Password"
+                />
+                <i className="eyes fa-solid fa-eye show-pw" id="show-pw"></i>
+                <i className="eyes fa-solid fa-eye-slash hide-pw" id="hide-pw"></i>
+            </div>
+            <div className="blank">
+                <input
+                type="text"
+                name="check password"
+                id="check-password"
+                placeholder="Check Password"
+                />
+                <i className="eyes fa-solid fa-eye show-pw" id="show-pw"></i>
+                <i className="eyes fa-solid fa-eye-slash hide-pw" id="hide-pw"></i>
+            </div>
         </div>
         <div className="buttons">
             <button type="submit" className="btn submit" id="submit" onClick={sign_up}>註冊帳戶</button>
