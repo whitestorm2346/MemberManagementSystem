@@ -1,3 +1,5 @@
+import {login, reset} from './script/login.js';
+
 function LoginPage(){
     return(
         <>
@@ -7,7 +9,6 @@ function LoginPage(){
             <input
             type="text"
             name="account"
-            className="account"
             id="account"
             placeholder="Account"
             />
@@ -16,15 +17,16 @@ function LoginPage(){
             <input
             type="text"
             name="password"
-            className="password"
             id="password"
             placeholder="Password"
             />
             <i className="eyes fa-solid fa-eye show-pw" id="show-pw"></i>
             <i className="eyes fa-solid fa-eye-slash hide-pw" id="hide-pw"></i>
         </div>
-        <button type="submit" className="btn submit" id="submit">登入</button>
-        <button type="reset" className="btn reset" id="reset">重置</button>
+        <div className="buttons">
+            <button type="submit" className="btn submit" id="submit" onClick={login}>登入</button>
+            <button type="reset" className="btn reset" id="reset" onClick={reset}>重置</button>
+        </div>
         </section>
 
         <script src="/script/login.js"></script>

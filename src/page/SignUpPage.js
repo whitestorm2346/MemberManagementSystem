@@ -1,4 +1,17 @@
 function SignUpPage(){
+    const reset = () => {
+        console.log('reset active')
+    
+        const input_account = document.getElementById('account')
+        input_account.value = ''
+    
+        const input_new_password = document.getElementById('new-password')
+        input_new_password.value = ''
+
+        const input_check_password = document.getElementById('check-password')
+        input_check_password.value = ''
+    }
+
     return(
         <>
         <section className="sign-up">
@@ -7,7 +20,6 @@ function SignUpPage(){
             <input
             type="text"
             name="account"
-            className="account"
             id="account"
             placeholder="Account"
             />
@@ -16,7 +28,6 @@ function SignUpPage(){
             <input
             type="text"
             name="new password"
-            className="password"
             id="new-password"
             placeholder="New Password"
             />
@@ -27,7 +38,6 @@ function SignUpPage(){
             <input
             type="text"
             name="check password"
-            className="password"
             id="check-password"
             placeholder="Check Password"
             />
@@ -35,7 +45,7 @@ function SignUpPage(){
             <i className="eyes fa-solid fa-eye-slash hide-pw" id="hide-pw"></i>
         </div>
         <button type="submit" className="btn submit" id="submit">登入</button>
-        <button type="reset" className="btn reset" id="reset">重置</button>
+        <button type="reset" className="btn reset" id="reset" onClick={reset}>重置</button>
         </section>
 
         <script src="/script/sign-up.js"></script>
