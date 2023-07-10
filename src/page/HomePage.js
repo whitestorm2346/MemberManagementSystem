@@ -6,6 +6,7 @@ function HomePage(){
         <h2 className="sub-title">Demo Page</h2>
         <a href="/login" className="btn2">
             <i className="fa-solid fa-right-to-bracket"></i>
+            <span>Login</span>
         </a>
         </section>
         </>

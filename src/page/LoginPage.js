@@ -50,13 +50,20 @@ function LoginPage(){
             <button type="submit" className="btn submit" id="submit" onClick={login}>登入</button>
             <button type="reset" className="btn reset" id="reset" onClick={reset}>重置</button>
         </div>
-        <div className="links">
-            <a href="/sign-up">註冊帳戶</a>
-            <a href="/forgot-password">忘記密碼</a>
+        <div className="buttons">
+            <a href="/sign-up" className="btn2">
+                <i className="fa-solid fa-user-plus"></i>
+                <span>Sign Up</span>
+            </a>
+            <a href="/" className="btn2">
+                <i className="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="/forgot-password" className="btn2">
+                <i className="fa-solid fa-user-shield"></i>
+                <span>Forgot Password</span>
+            </a>
         </div>
-        <a href="/" className="btn2">
-            <i className="fa-solid fa-house"></i>
-        </a>
         </section>
         </>
     )
