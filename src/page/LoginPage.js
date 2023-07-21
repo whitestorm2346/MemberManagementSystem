@@ -1,7 +1,30 @@
-import { useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { login, reset } from './script/login.js';
 
 function LoginPage(){
+    // const userRef = useRef()
+    // const errRef = useRef()
+    const navigate = useNavigate()
+
+    // const [user, setUser] = useState('')
+    // const [password, setPassword] = useState('')
+    // const [errMsg, setErrMsg] = useState('')
+    // const [success, setSuccess] = useState(false)
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    const handleLogin = async () => {
+        let state = await login()
+
+        console.log('state: ', state)
+
+        setIsAuthenticated(state)
+
+        console.log('isAuthenticated: ', isAuthenticated)
+
+        if(isAuthenticated) navigate('/main')
+    }
+
     useEffect(() => {
         const show_pw_btn = document.getElementById('show-pw')
         const hide_pw_btn = document.getElementById('hide-pw')
@@ -47,7 +70,7 @@ function LoginPage(){
             </div>
         </div>
         <div className="buttons">
-            <button type="submit" className="btn submit" id="submit" onClick={login}>登入</button>
+            <button type="submit" className="btn submit" id="submit" onClick={handleLogin}>登入</button>
             <button type="reset" className="btn reset" id="reset" onClick={reset}>重置</button>
         </div>
         <div className="buttons">

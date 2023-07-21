@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
-import { sign_up, reset } from './script/sign-up.js';
 
-function SignUpPage(){
+function RegisterPage(){
     useEffect(() => {
         const show_pw_btn1 = document.getElementById('show-pw-1')
         const hide_pw_btn1 = document.getElementById('hide-pw-1')
@@ -38,8 +37,8 @@ function SignUpPage(){
 
     return(
         <>
-        <section className="sign-up">
-        <h1 className="title">註冊帳戶</h1>
+        <section className="register">
+        <h1 className="title">註冊會員</h1>
         <div className="container">
             <div className="blank">
                 <input
@@ -71,8 +70,8 @@ function SignUpPage(){
             </div>
         </div>
         <div className="buttons">
-            <button type="submit" className="btn submit" id="submit" onClick={sign_up}>註冊</button>
-            <button type="reset" className="btn reset" id="reset" onClick={reset}>重置</button>
+            <button type="submit" className="btn submit" id="submit">註冊</button>
+            <button type="reset" className="btn reset" id="reset">重置</button>
         </div>
         <div className="buttons">
             <a href="/login" className="btn2">
@@ -89,4 +88,4 @@ function SignUpPage(){
     )
 }
 
-export default SignUpPage;
+export default RegisterPage;

@@ -29,6 +29,14 @@ section {
     margin-top: 25vh;
 }
 
+.main {
+    margin-top: 35vh;
+}
+
+.register {
+    margin-top: 25vh;
+}
+
 .title {
     font-size: 3rem;
     text-align: center;

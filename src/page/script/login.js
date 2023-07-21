@@ -11,7 +11,7 @@ export const login = async () => {
     // console.log(account, password)
 
     if(account === '' || password === '') {
-        return;
+        return false;
     }
 
     let {data, error} = await supabase
@@ -21,7 +21,7 @@ export const login = async () => {
 
     if (error) {
         console.error(error);
-        return;
+        return false; 
     }
 
     console.log(data)
@@ -29,6 +29,7 @@ export const login = async () => {
     if(data.length){
         if(password === data[0].password){
             alert('Login Successfully!')
+            return true
         }
         else{
             alert('This account does not exist, or the password is wrong!')
@@ -37,6 +38,8 @@ export const login = async () => {
     else{
         alert('This account does not exist, or the password is wrong!')
     }
+
+    return false
 }
 
 export const reset = () => {
