@@ -1,29 +1,29 @@
-import { useRef, useState, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login, reset } from './script/login.js';
+import { LoginContext } from '../context/LoginContext.js';
 
 function LoginPage(){
-    // const userRef = useRef()
-    // const errRef = useRef()
-    const navigate = useNavigate()
+    const { isAuthenticated, setIsAuthenticated, setUserID } = useContext(LoginContext)
+    const navigate = useNavigate();
 
-    // const [user, setUser] = useState('')
-    // const [password, setPassword] = useState('')
-    // const [errMsg, setErrMsg] = useState('')
-    // const [success, setSuccess] = useState(false)
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+    useEffect(() => {
+        if (isAuthenticated) navigate('/main');
+        else setUserID('');
+    }, [isAuthenticated]);
+    
     const handleLogin = async () => {
-        let state = await login()
-
-        console.log('state: ', state)
-
-        setIsAuthenticated(state)
-
-        console.log('isAuthenticated: ', isAuthenticated)
-
-        if(isAuthenticated) navigate('/main')
-    }
+        try {
+            let account_input = document.getElementById("account")
+            setUserID(account_input.value)
+            
+            let result = await login();
+            setIsAuthenticated(result);
+        } 
+        catch (error) {
+            console.error('Error during login:', error);
+        }
+    };
 
     useEffect(() => {
         const show_pw_btn = document.getElementById('show-pw')

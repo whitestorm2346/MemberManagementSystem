@@ -24,7 +24,7 @@ export const login = async () => {
         return false; 
     }
 
-    console.log(data)
+    // console.log(data)
 
     if(data.length){
         if(password === data[0].password){
