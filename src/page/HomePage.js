@@ -12,7 +12,7 @@ function HomePage(){
         <h2 className="sub-title">Demo Page</h2>
         <Link to={isAuthenticated ? "/main" : "/login"} className="btn2">
             <i className="fa-solid fa-right-to-bracket"></i>
-            <span>Login</span>
+            <span>Enter</span>
         </Link>
         </section>
         </>

@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function RegisterPage(){
     useEffect(() => {
@@ -74,14 +75,14 @@ function RegisterPage(){
             <button type="reset" className="btn reset" id="reset">重置</button>
         </div>
         <div className="buttons">
-            <a href="/login" className="btn2">
+            <Link to={"/login"} className="btn2">
                 <i className="fa-solid fa-right-to-bracket"></i>
-                <span>Login</span>
-            </a>
-            <a href="/" className="btn2">
+                <span>Enter</span>
+            </Link>
+            <Link to={"/"} className="btn2">
                 <i className="fa-solid fa-house"></i>
                 <span>Home</span>
-            </a>
+            </Link>
         </div>
         </section>
         </>

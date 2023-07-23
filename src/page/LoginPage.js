@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { login, reset } from './script/login.js';
 import { LoginContext } from '../context/LoginContext.js';
 
@@ -74,18 +74,18 @@ function LoginPage(){
             <button type="reset" className="btn reset" id="reset" onClick={reset}>重置</button>
         </div>
         <div className="buttons">
-            <a href="/sign-up" className="btn2">
+            <Link to={"/sign-up"} className="btn2">
                 <i className="fa-solid fa-user-plus"></i>
                 <span>Sign Up</span>
-            </a>
-            <a href="/" className="btn2">
+            </Link>
+            <Link to={"/"} className="btn2">
                 <i className="fa-solid fa-house"></i>
                 <span>Home</span>
-            </a>
-            <a href="/forgot-password" className="btn2">
+            </Link>
+            <Link to={"/forgot-password"} className="btn2">
                 <i className="fa-solid fa-user-shield"></i>
                 <span>Forgot Password</span>
-            </a>
+            </Link>
         </div>
         </section>
         </>
