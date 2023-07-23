@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function RegisterPage(){
@@ -72,13 +72,9 @@ function RegisterPage(){
         </div>
         <div className="buttons">
             <button type="submit" className="btn submit" id="submit">註冊</button>
-            <button type="reset" className="btn reset" id="reset">重置</button>
+            <button type="reset" className="btn reset warning" id="reset">重置</button>
         </div>
-        <div className="buttons">
-            <Link to={"/login"} className="btn2">
-                <i className="fa-solid fa-right-to-bracket"></i>
-                <span>Enter</span>
-            </Link>
+        <div className="buttons-around">
             <Link to={"/"} className="btn2">
                 <i className="fa-solid fa-house"></i>
                 <span>Home</span>

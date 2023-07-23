@@ -8,7 +8,7 @@ function LoginPage(){
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (isAuthenticated) navigate('/main');
+        if (isAuthenticated) navigate('/');
         else setUserID('');
     }, [isAuthenticated]);
     
@@ -71,7 +71,7 @@ function LoginPage(){
         </div>
         <div className="buttons">
             <button type="submit" className="btn submit" id="submit" onClick={handleLogin}>登入</button>
-            <button type="reset" className="btn reset" id="reset" onClick={reset}>重置</button>
+            <button type="reset" className="btn reset warning" id="reset" onClick={reset}>重置</button>
         </div>
         <div className="buttons">
             <Link to={"/sign-up"} className="btn2">

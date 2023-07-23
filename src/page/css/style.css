@@ -87,6 +87,12 @@ input::-ms-reveal {
     justify-content: space-between;   
 }
 
+.buttons-around {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;   
+}
+
 button, .btn {
     padding: .3rem 1rem;
     color: #000;
@@ -138,6 +144,7 @@ button:hover, .btn:hover {
     text-align: center;
     font-family:'Times New Roman', Times, serif;
     font-weight: bold;
+    user-select: none;
 }
 
 .home>.btn2 {
@@ -147,6 +154,18 @@ button:hover, .btn:hover {
 .login>.buttons:nth-of-type(3), 
 .sign-up>.buttons:nth-of-type(3) {
     margin-top: 3rem;
+}
+
+.warning {
+    background-color: #ffa6a6;
+}
+
+.warning:hover {
+    background-color: #ff2a2a;
+}
+
+.warning:hover i {
+    color: aliceblue;
 }
 
 .enter {

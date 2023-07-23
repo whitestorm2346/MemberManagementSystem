@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { sign_up, reset } from './script/sign-up.js';
 
@@ -73,7 +73,7 @@ function SignUpPage(){
         </div>
         <div className="buttons">
             <button type="submit" className="btn submit" id="submit" onClick={sign_up}>註冊</button>
-            <button type="reset" className="btn reset" id="reset" onClick={reset}>重置</button>
+            <button type="reset" className="btn reset warning" id="reset" onClick={reset}>重置</button>
         </div>
         <div className="buttons">
             <Link to={"/login"} className="btn2">
