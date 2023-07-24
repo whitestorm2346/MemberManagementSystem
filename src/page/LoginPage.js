@@ -4,18 +4,18 @@ import { login, reset } from './script/login.js';
 import { LoginContext } from '../context/LoginContext.js';
 
 function LoginPage(){
-    const { isAuthenticated, setIsAuthenticated, setUserID } = useContext(LoginContext)
+    const { isAuthenticated, setIsAuthenticated, setuserAccount } = useContext(LoginContext)
     const navigate = useNavigate();
 
     useEffect(() => {
         if (isAuthenticated) navigate('/');
-        else setUserID('');
+        else setuserAccount('');
     }, [isAuthenticated]);
     
     const handleLogin = async () => {
         try {
             let account_input = document.getElementById("account")
-            setUserID(account_input.value)
+            setuserAccount(account_input.value)
             
             let result = await login();
             setIsAuthenticated(result);

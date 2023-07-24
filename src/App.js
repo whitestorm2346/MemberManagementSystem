@@ -14,10 +14,17 @@ import { LoginContext } from './context/LoginContext';
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [userID, setUserID] = useState("")
+  const [userAccount, setUserAccount] = useState("")
+  const [isMember, setIsMember] = useState(false)
 
   return (
     <BrowserRouter>
-      <LoginContext.Provider value={{ isAuthenticated, setIsAuthenticated, userID, setUserID }}>
+      <LoginContext.Provider value={{ 
+          isAuthenticated, setIsAuthenticated,
+          userID, setUserID, 
+          userAccount, setUserAccount,
+          isMember, setIsMember 
+      }}>
         <Routes>
             <Route path="/" element={ isAuthenticated ? <MainPage /> : <HomePage /> } />
             <Route path="/login" element={<LoginPage />} />

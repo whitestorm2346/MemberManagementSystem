@@ -51,3 +51,17 @@ export const reset = () => {
     const input_password = document.getElementById('password')
     input_password.value = ''
 }
+
+export const getSettingData = async (user_id) => {
+    let {data, error} = await supabase
+    .from('member-list')
+    .select("*")
+    .eq('account', account)
+
+    if (error) {
+        console.error(error);
+        return {}; 
+    }
+
+    return data
+}

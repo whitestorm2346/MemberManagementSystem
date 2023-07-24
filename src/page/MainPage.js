@@ -3,11 +3,11 @@ import { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
 
 function MainPage(){
-    const { setAuthenticated, userID, setUserID } = useContext(LoginContext)
+    const { setAuthenticated, userAccount, setUserAccount } = useContext(LoginContext)
 
     const logout = () => {
         setAuthenticated(false)
-        setUserID("")
+        setUserAccount("")
         alert("Logout Successfully!")
     }
 
@@ -15,7 +15,7 @@ function MainPage(){
         <>
         <section className="main">
         <h1 className="title">Welcome Back</h1>
-        <h2 className="sub-title">{userID}</h2>
+        <h2 className="sub-title">{userAccount}</h2>
         <div className="buttons">
             <Link to={"/register"} className="btn2">
                 <i className="fa-solid fa-address-card"></i>
