@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ForgotpPasswordPage(){
+function ForgotPasswordPage(){
     return(
         <>
         <section className="home">
@@ -14,4 +14,4 @@ function ForgotpPasswordPage(){
     )
 }
 
-export default ForgotpPasswordPage;
+export default ForgotPasswordPage;

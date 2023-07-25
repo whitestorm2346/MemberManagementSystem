@@ -4,7 +4,7 @@ import './page/css/style.css'
 
 import LoginPage from './page/LoginPage';
 import SignUpPage from './page/SignUpPage';
-import ForgotpPasswordPage from './page/ForgotPasswordPage';
+import ForgotPasswordPage from './page/ForgotPasswordPage';
 import HomePage from './page/HomePage';
 import MainPage from './page/MainPage';
 import RegisterPage from './page/RegisterPage';
@@ -15,7 +15,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [userID, setUserID] = useState("")
   const [userAccount, setUserAccount] = useState("")
-  const [isMember, setIsMember] = useState(false)
+  const [userType, setUserType] = useState('0')
 
   return (
     <BrowserRouter>
@@ -23,13 +23,13 @@ function App() {
           isAuthenticated, setIsAuthenticated,
           userID, setUserID, 
           userAccount, setUserAccount,
-          isMember, setIsMember 
+          userType, setUserType 
       }}>
         <Routes>
             <Route path="/" element={ isAuthenticated ? <MainPage /> : <HomePage /> } />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/sign-up" element={<SignUpPage />} />
-            <Route path="/forgot-password" element={<ForgotpPasswordPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/register" element={<RegisterPage />} />
         </Routes>
       </LoginContext.Provider>

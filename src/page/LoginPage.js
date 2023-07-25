@@ -1,29 +1,70 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { login, reset } from './script/login.js';
 import { LoginContext } from '../context/LoginContext.js';
 
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 function LoginPage(){
-    const { isAuthenticated, setIsAuthenticated, setuserAccount } = useContext(LoginContext)
+    const { 
+        isAuthenticated, 
+        setIsAuthenticated, 
+        setUserAccount,
+        setUserID 
+    } = useContext(LoginContext)
     const navigate = useNavigate();
+    
+    const login = async () => {
+        let account = document.getElementById('account').value
+        let password = document.getElementById('password').value
+
+        if(account === '' || password === '') {
+            return false;
+        }
+
+        let {data, error} = await supabase
+        .from('member-list')
+        .select("*")
+        .eq('account', account)
+
+        if (error) {
+            console.error(error);
+            return false; 
+        }
+
+        if(data.length){
+            if(password === data[0].password){
+                alert('Login Successfully!')
+
+                setUserAccount(account)
+                setUserID(data[0].id)
+                setIsAuthenticated(true);
+            }
+            else{
+                alert('This account does not exist, or the password is wrong!')
+            }
+        }
+        else{
+            alert('This account does not exist, or the password is wrong!')
+        }
+    };
+
+    const reset = () => {
+        const input_account = document.getElementById('account')
+        input_account.value = ''
+    
+        const input_password = document.getElementById('password')
+        input_password.value = ''
+    }
 
     useEffect(() => {
         if (isAuthenticated) navigate('/');
-        else setuserAccount('');
+        else setUserAccount('');
     }, [isAuthenticated]);
-    
-    const handleLogin = async () => {
-        try {
-            let account_input = document.getElementById("account")
-            setuserAccount(account_input.value)
-            
-            let result = await login();
-            setIsAuthenticated(result);
-        } 
-        catch (error) {
-            console.error('Error during login:', error);
-        }
-    };
 
     useEffect(() => {
         const show_pw_btn = document.getElementById('show-pw')
@@ -70,7 +111,7 @@ function LoginPage(){
             </div>
         </div>
         <div className="buttons">
-            <button type="submit" className="btn submit" id="submit" onClick={handleLogin}>登入</button>
+            <button type="submit" className="btn submit" id="submit" onClick={login}>登入</button>
             <button type="reset" className="btn reset warning" id="reset" onClick={reset}>重置</button>
         </div>
         <div className="buttons">
