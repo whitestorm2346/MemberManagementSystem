@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-function ForgotPasswordPage(){
+function MemberSettingPage(){
     return(
         <>
-        <section className="forgot-password">
+        <section className="member-setting">
         <h1 className="title">忘記密碼</h1>
         <Link to={"/"} className="btn2">
             <i className="fa-solid fa-house"></i>
@@ -14,4 +14,4 @@ function ForgotPasswordPage(){
     )
 }
 
-export default ForgotPasswordPage;
+export default MemberSettingPage;

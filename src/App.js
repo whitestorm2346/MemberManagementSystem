@@ -8,6 +8,7 @@ import ForgotPasswordPage from './page/ForgotPasswordPage';
 import HomePage from './page/HomePage';
 import MainPage from './page/MainPage';
 import RegisterPage from './page/RegisterPage';
+import MemberSettingPage from './page/MemberSettingPage';
 
 import { LoginContext } from './context/LoginContext';
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/sign-up" element={<SignUpPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/member-setting" element={<MemberSettingPage />} />
         </Routes>
       </LoginContext.Provider>
     </BrowserRouter>
