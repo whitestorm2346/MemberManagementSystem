@@ -14,7 +14,8 @@ function LoginPage(){
         isAuthenticated, 
         setIsAuthenticated, 
         setUserAccount,
-        setUserID 
+        setUserID,
+        setUserType 
     } = useContext(LoginContext)
     const navigate = useNavigate();
     
@@ -42,6 +43,7 @@ function LoginPage(){
 
                 setUserAccount(account)
                 setUserID(data[0].id)
+                setUserType(data[0].type)
                 setIsAuthenticated(true);
             }
             else{

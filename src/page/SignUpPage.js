@@ -1,8 +1,67 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { sign_up, reset } from './script/sign-up.js';
+
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 function SignUpPage(){
+    const sign_up = async () => {
+        let account = document.getElementById('account').value
+        let new_password = document.getElementById('new-password').value
+        let check_password = document.getElementById('check-password').value
+    
+        if(account === '' || new_password === '' || check_password === '') {
+            return;
+        }
+    
+        if (new_password !== check_password) {
+            alert('The passwords do not fit!')
+            return;
+        }
+    
+        let {data, error} = await supabase
+        .from('member-list')
+        .select("*")
+        .eq('account', account)
+    
+        if (error) {
+            console.error(error);
+        }
+        else if (data.length) {
+            alert('This account already exist!')
+        }
+        else {
+            let { data, error } = await supabase
+                .from('member-list')
+                .insert([{ 
+                    account: account, 
+                    password: new_password 
+                }]).select()
+    
+            if (error) {
+                console.error(error);
+                return;
+            }
+            
+            alert('Sign Up Successfully!')
+        }
+    }
+
+    const reset = () => {
+        const input_account = document.getElementById('account')
+        input_account.value = ''
+    
+        const input_new_password = document.getElementById('new-password')
+        input_new_password.value = ''
+    
+        const input_check_password = document.getElementById('check-password')
+        input_check_password.value = ''
+    }
+
     useEffect(() => {
         const show_pw_btn1 = document.getElementById('show-pw-1')
         const hide_pw_btn1 = document.getElementById('hide-pw-1')

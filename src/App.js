@@ -15,7 +15,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [userID, setUserID] = useState("")
   const [userAccount, setUserAccount] = useState("")
-  const [userType, setUserType] = useState('0')
+  const [userType, setUserType] = useState(0)
 
   return (
     <BrowserRouter>
