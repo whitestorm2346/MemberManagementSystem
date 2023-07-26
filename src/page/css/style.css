@@ -51,6 +51,11 @@ section {
     text-align: center;
 }
 
+.name {
+    margin-top: 1rem;
+    font-size: 1.75rem;
+}
+
 .container {
     margin-top: 2rem;
 }

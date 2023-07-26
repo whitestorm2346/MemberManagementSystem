@@ -15,7 +15,7 @@ function LoginPage(){
         setIsAuthenticated, 
         setUserAccount,
         setUserID,
-        setUserType 
+        setUserType ,
     } = useContext(LoginContext)
     const navigate = useNavigate();
     
@@ -39,12 +39,12 @@ function LoginPage(){
 
         if(data.length){
             if(password === data[0].password){
-                alert('Login Successfully!')
-
                 setUserAccount(account)
                 setUserID(data[0].id)
                 setUserType(data[0].type)
                 setIsAuthenticated(true);
+
+                alert('Login Successfully!')
             }
             else{
                 alert('This account does not exist, or the password is wrong!')

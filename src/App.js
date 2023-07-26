@@ -16,6 +16,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [userID, setUserID] = useState("")
   const [userAccount, setUserAccount] = useState("")
+  const [userNickname, setUserNickname] = useState("")
   const [userType, setUserType] = useState(0)
 
   return (
@@ -24,7 +25,8 @@ function App() {
           isAuthenticated, setIsAuthenticated,
           userID, setUserID, 
           userAccount, setUserAccount,
-          userType, setUserType 
+          userNickname, setUserNickname,
+          userType, setUserType
       }}>
         <Routes>
             <Route path="/" element={ isAuthenticated ? <MainPage /> : <HomePage /> } />
