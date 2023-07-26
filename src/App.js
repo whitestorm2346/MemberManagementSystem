@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LoginContext } from './context/LoginContext';
 import './page/css/style.css'
 
 import LoginPage from './page/LoginPage';
@@ -10,7 +11,6 @@ import MainPage from './page/MainPage';
 import RegisterPage from './page/RegisterPage';
 import MemberSettingPage from './page/MemberSettingPage';
 
-import { LoginContext } from './context/LoginContext';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)

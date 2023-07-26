@@ -2,77 +2,27 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function RegisterPage(){
-    useEffect(() => {
-        const show_pw_btn1 = document.getElementById('show-pw-1')
-        const hide_pw_btn1 = document.getElementById('hide-pw-1')
-        const input_new_password = document.getElementById('new-password')
+    const register = () => {
 
-        show_pw_btn1.addEventListener('click', () => {
-            show_pw_btn1.classList.add('hide')
-            hide_pw_btn1.classList.remove('hide')
-            input_new_password.setAttribute("type", "text")
-        })
-
-        hide_pw_btn1.addEventListener('click', () => {
-            hide_pw_btn1.classList.add('hide')
-            show_pw_btn1.classList.remove('hide')
-            input_new_password.setAttribute("type", "password")
-        })
-
-        const show_pw_btn2 = document.getElementById('show-pw-2')
-        const hide_pw_btn2 = document.getElementById('hide-pw-2')
-        const input_check_password = document.getElementById('check-password')
-
-        show_pw_btn2.addEventListener('click', () => {
-            show_pw_btn2.classList.add('hide')
-            hide_pw_btn2.classList.remove('hide')
-            input_check_password.setAttribute("type", "text")
-        })
-
-        hide_pw_btn2.addEventListener('click', () => {
-            hide_pw_btn2.classList.add('hide')
-            show_pw_btn2.classList.remove('hide')
-            input_check_password.setAttribute("type", "password")
-        })
-    }, [])
+    }
 
     return(
         <>
         <section className="register">
         <h1 className="title">註冊會員</h1>
         <div className="container">
-            <div className="blank">
+            <div className="blank2" id="membership-terms">
                 <input
-                type="text"
-                name="account"
-                id="account"
-                placeholder="Account"
+                type="checkbox"
+                className="checkbox"
+                name="check-membership-terms"
+                id="check-membership-terms"
                 />
-            </div>
-            <div className="blank">
-                <input
-                type="password"
-                name="new password"
-                id="new-password"
-                placeholder="New Password"
-                />
-                <i className="eyes fa-solid fa-eye show-pw" id="show-pw-1"></i>
-                <i className="eyes fa-solid fa-eye-slash hide-pw hide" id="hide-pw-1"></i>
-            </div>
-            <div className="blank">
-                <input
-                type="password"
-                name="check password"
-                id="check-password"
-                placeholder="Check Password"
-                />
-                <i className="eyes fa-solid fa-eye show-pw" id="show-pw-2"></i>
-                <i className="eyes fa-solid fa-eye-slash hide-pw hide" id="hide-pw-2"></i>
+                <p className="center">請詳細閱讀完<span>會員條款</span>後再勾選</p>
             </div>
         </div>
-        <div className="buttons">
-            <button type="submit" className="btn submit" id="submit">註冊</button>
-            <button type="reset" className="btn reset warning" id="reset">重置</button>
+        <div className="buttons-around">
+            <button type="submit" className="btn submit" id="submit" onClick={register}>確認註冊</button>
         </div>
         <div className="buttons-around">
             <Link to={"/"} className="btn2">
