@@ -5,7 +5,13 @@ const apikey = process.env.REACT_APP_APIKEY;
 const Authorization = process.env.REACT_APP_AUTHORIZATION;
 
 function UserName({ userType }) {
-    const { userAccount, userNickname, userID, setUserNickname } = useContext(LoginContext)
+    const { 
+        userAccount, 
+        userNickname, 
+        userID, 
+        setUserNickname,
+        setFontColor
+    } = useContext(LoginContext)
 
     const set_member_name = async () => {
         try{
@@ -19,6 +25,7 @@ function UserName({ userType }) {
             const data = await response.json();
 
             setUserNickname(data[0].nickname)
+            setFontColor(data[0].font_color)
         }
         catch(error){
             console.log(error);

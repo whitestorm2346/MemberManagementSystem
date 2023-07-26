@@ -18,6 +18,7 @@ function App() {
   const [userAccount, setUserAccount] = useState("")
   const [userNickname, setUserNickname] = useState("")
   const [userType, setUserType] = useState(0)
+  const [fontColor, setFontColor] = useState("#000000")
 
   return (
     <BrowserRouter>
@@ -26,7 +27,8 @@ function App() {
           userID, setUserID, 
           userAccount, setUserAccount,
           userNickname, setUserNickname,
-          userType, setUserType
+          userType, setUserType,
+          fontColor, setFontColor
       }}>
         <Routes>
             <Route path="/" element={ isAuthenticated ? <MainPage /> : <HomePage /> } />

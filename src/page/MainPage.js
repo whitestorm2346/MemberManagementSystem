@@ -9,7 +9,8 @@ function MainPage(){
     const { 
         setAuthenticated, 
         setUserAccount,
-        userType
+        userType,
+        fontColor
     } = useContext(LoginContext)
 
     const logout = () => {
@@ -22,7 +23,7 @@ function MainPage(){
         <>
         <section className="main">
         <h1 className="title">Welcome Back</h1>
-        <h2 className="sub-title name">
+        <h2 className="sub-title name" style={{color: fontColor}}>
             <UserName userType={userType} />
         </h2>
         <div className="buttons">

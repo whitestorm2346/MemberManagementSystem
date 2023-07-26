@@ -15,7 +15,7 @@ function LoginPage(){
         setIsAuthenticated, 
         setUserAccount,
         setUserID,
-        setUserType ,
+        setUserType
     } = useContext(LoginContext)
     const navigate = useNavigate();
     
