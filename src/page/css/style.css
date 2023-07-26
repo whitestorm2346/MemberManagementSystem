@@ -34,7 +34,11 @@ section {
 }
 
 .register {
-    margin-top: 25vh;
+    margin-top: 33vh;
+}
+
+.member-setting {
+    margin-top: 38vh;
 }
 
 .title {
@@ -211,4 +215,13 @@ button:hover, .btn:hover {
 
 #membership-terms p {
     font-size: 1.1rem;
+}
+
+#membership-terms p span {
+    color: rgb(0, 64, 255);
+    text-decoration: underline;
+}
+
+#membership-terms p span:hover {
+    cursor: pointer;
 }

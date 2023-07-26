@@ -1,9 +1,62 @@
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { LoginContext} from '../context/LoginContext';
+
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 function RegisterPage(){
-    const register = () => {
+    const { userID, userAccount, setUserType } = useContext(LoginContext)
+    const navigate = useNavigate();
 
+    const insert_member_setting = async () => {
+        let {data, error} = await supabase
+        .from('member-setting')
+        .insert([{
+            'id': userID,
+            'nickname': userAccount,
+        }])
+        .select('*')
+
+        if (error) {
+            console.error(error);
+            return false; 
+        }
+
+        console.log(data)
+    }
+
+    const register = async () => {
+        let checkbox = document.getElementById('check-membership-terms')
+
+        if(checkbox.checked){
+            let {data, error} = await supabase
+            .from('member-list')
+            .update({'type': 1})
+            .eq('id', userID)
+            .select('*')
+
+            if (error) {
+                console.error(error);
+                return false; 
+            }
+
+            console.log(data)
+            setUserType(1)
+
+            alert('Register Successfully!')
+
+            insert_member_setting()
+
+            navigate('/');
+        }
+        else {
+            alert('Please read the terms before you register for the membership!')
+        }
     }
 
     return(
