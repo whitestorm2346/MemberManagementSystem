@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { createClient } from "@supabase/supabase-js";
 
@@ -9,6 +9,8 @@ const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 function SignUpPage(){
+    const navigate = useNavigate()
+
     const sign_up = async () => {
         let account = document.getElementById('account').value
         let new_password = document.getElementById('new-password').value
@@ -48,6 +50,8 @@ function SignUpPage(){
             }
             
             alert('Sign Up Successfully!')
+
+            navigate('/login')
         }
     }
 
